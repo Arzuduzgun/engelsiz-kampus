@@ -1,63 +1,256 @@
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-soft: #eff6ff;
+  --surface: #ffffff;
+  --bg-page: #f1f5f9;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+}
+
 body {
-  background-color: #f8fafc;
-  color: #0f172a;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-.app-header {
-  background: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 1rem 0;
-}
-
-.main-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
-  padding: 1.75rem;
-}
-
-.timeline-step {
+/* Modern Üst Hero Alanı */
+.hero-banner {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #2563eb 100%);
+  color: #ffffff;
+  padding: 2rem 0 4.25rem 0;
   position: relative;
-  padding-left: 2rem;
-  padding-bottom: 1.25rem;
-  border-left: 2px solid #cbd5e1;
-  margin-left: 0.6rem;
 }
 
-.timeline-step:last-child {
-  border-left-color: transparent;
+.brand-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+/* Yüzen Ana Konteyner ve Sekme Çubuğu */
+.floating-wrapper {
+  margin-top: -2.75rem;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-pills-modern {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 0.4rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+  border: 1px solid var(--border-color);
+  display: inline-flex;
+  gap: 0.35rem;
+}
+
+.nav-pills-modern .nav-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-pills-modern .nav-btn:hover {
+  color: var(--text-main);
+  background: #f8fafc;
+}
+
+.nav-pills-modern .nav-btn.active {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);
+}
+
+/* Ana Kart Yapısı */
+.glass-card {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.07);
+  padding: 2rem;
+}
+
+/* Modern Form Elemanları */
+.location-box {
+  background: #f8fafc;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.location-box:focus-within {
+  border-color: var(--primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.location-box select {
+  border: none;
+  background: transparent;
+  font-weight: 600;
+  color: var(--text-main);
+  padding: 0.15rem 0;
+  box-shadow: none !important;
+}
+
+.swap-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid var(--border-color);
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
+  transition: transform 0.25s ease, background-color 0.2s ease;
+}
+
+.swap-btn:hover {
+  background: var(--primary-soft);
+  transform: rotate(180deg);
+}
+
+.access-toggle-card {
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #ffffff;
+}
+
+.access-toggle-card.checked {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.btn-cta {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.95rem 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.45);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-cta:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px -4px rgba(37, 99, 235, 0.55);
+}
+
+/* Zaman Çizelgesi (Route Timeline) */
+.timeline-modern {
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 2.35rem;
+  padding-bottom: 1.5rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 0.72rem;
+  top: 1.65rem;
+  bottom: 0;
+  width: 2px;
+  background: #cbd5e1;
+}
+
+.timeline-item:last-child {
   padding-bottom: 0;
 }
 
-.timeline-dot {
-  position: absolute;
-  left: -0.62rem;
-  top: 0.15rem;
-  width: 1.15rem;
-  height: 1.15rem;
-  border-radius: 50%;
-  background: #0d6efd;
-  border: 3px solid #dbeafe;
+.timeline-item:last-child::before {
+  display: none;
 }
 
-.building-card {
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #e0e7ff;
+  color: var(--primary);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 2px #c7d2fe;
+}
+
+.timeline-item.start .timeline-marker {
+  background: #10b981;
+  color: #ffffff;
+  box-shadow: 0 0 0 3px #d1fae5;
+}
+
+.timeline-item.end .timeline-marker {
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 0 0 3px #fee2e2;
+}
+
+/* Bina Kartları */
+.campus-card {
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border: 1.5px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.15rem 0.9rem;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
-.building-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(13, 110, 253, 0.12);
+.campus-card:hover {
+  transform: translateY(-4px);
   border-color: #93c5fd;
+  box-shadow: 0 12px 24px -8px rgba(37, 99, 235, 0.16);
 }
 
-.bottom-nav {
-  background: #ffffff;
-  border-top: 1px solid #e2e8f0;
-  padding: 0.6rem 0;
+.campus-card.selected {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.45); }
+  70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+.speaking-pulse {
+  animation: pulseRing 1.4s infinite;
 }
