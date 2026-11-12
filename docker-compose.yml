@@ -1,0 +1,18 @@
+services:
+  backend:
+    build: ./engelsiz-backend
+    container_name: engelsiz-backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./engelsiz-backend/.env
+    restart: unless-stopped
+
+  frontend:
+    build: ./engelsiz-frontend
+    container_name: engelsiz-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    restart: unless-stopped
